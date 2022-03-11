@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 echo ""
-echo "===================="
+echo "========================================="
 echo "WGET - CURL - GPG - APT-TRANSPORT-HTTPS"
-echo "===================="
+echo "========================================="
 echo ""
 # ----------------------------- WGET, CURL, GPG and APT-TRANSPORT-HTTPS ----------------------------- #
 sudo apt install wget
@@ -14,9 +14,9 @@ sudo apt install apt-transport-https
 
 
 echo ""
-echo "===================="
+echo "========================================="
 echo "NODE - NPM"
-echo "===================="
+echo "========================================="
 echo ""
 # ----------------------------- NODEJS and NPM ----------------------------- #
 sudo apt install nodejs
@@ -25,9 +25,9 @@ sudo apt install npm
 
 
 echo ""
-echo "===================="
+echo "========================================="
 echo "ZSH"
-echo "===================="
+echo "========================================="
 echo ""
 # ----------------------------- ZSH ----------------------------- #
 sudo apt install zsh
@@ -36,9 +36,9 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 
 
 echo ""
-echo "===================="
+echo "========================================="
 echo "SNAP and FLATPAK"
-echo "===================="
+echo "========================================="
 echo ""
 # ----------------------------- SNAP and FLATPAK ----------------------------- #
 sudo apt install snapd
@@ -50,9 +50,9 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 
 
 echo ""
-echo "===================="
+echo "========================================="
 echo "GIT"
-echo "===================="
+echo "========================================="
 echo ""
 # ----------------------------- GIT ----------------------------- #
 sudo apt install git
@@ -60,9 +60,9 @@ sudo apt install git
 
 
 echo ""
-echo "===================="
+echo "========================================="
 echo "VS CODE"
-echo "===================="
+echo "========================================="
 echo ""
 # ----------------------------- DEB VS CODE ----------------------------- #
 wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
@@ -76,9 +76,9 @@ sudo apt install code
 
 
 echo ""
-echo "===================="
+echo "========================================="
 echo "ONE DRIVER"
-echo "===================="
+echo "========================================="
 echo ""
 # ----------------------------- DEB ONE DRIVER ----------------------------- #
 echo 'deb http://download.opensuse.org/repositories/home:/jstaf/xUbuntu_20.04/ /' | sudo tee /etc/apt/sources.list.d/home:jstaf.list
@@ -89,9 +89,9 @@ sudo apt install onedriver
 
 
 echo ""
-echo "===================="
+echo "========================================="
 echo "INSOMNIA"
-echo "===================="
+echo "========================================="
 echo ""
 # ----------------------------- DEB INSOMNIA ----------------------------- #
 echo "deb [trusted=yes arch=amd64] https://download.konghq.com/insomnia-ubuntu/ default all" \
@@ -103,9 +103,9 @@ sudo apt install insomnia
 
 
 echo ""
-echo "===================="
+echo "========================================="
 echo "BRAVE"
-echo "===================="
+echo "========================================="
 echo ""
 # ----------------------------- DEB BRAVE ----------------------------- #
 sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
@@ -116,9 +116,9 @@ sudo apt install brave-browser
 
 
 echo ""
-echo "===================="
+echo "========================================="
 echo "BEEKEEPER STUDIO"
-echo "===================="
+echo "========================================="
 echo ""
 # ----------------------------- DEB BEEKEEPER STUDIO ----------------------------- #
 wget --quiet -O - https://deb.beekeeperstudio.io/beekeeper.key | sudo apt-key add -
@@ -129,9 +129,9 @@ sudo apt install beekeeper-studio
 
 
 echo ""
-echo "===================="
+echo "========================================="
 echo "AUTHY"
-echo "===================="
+echo "========================================="
 echo ""
 # ----------------------------- SNAP AUTHY ----------------------------- #
 sudo snap install authy
@@ -139,9 +139,9 @@ sudo snap install authy
 
 
 echo ""
-echo "===================="
+echo "========================================="
 echo "DISCORD - ONLYOFFICE"
-echo "===================="
+echo "========================================="
 echo ""
 # ----------------------------- FLATPAK DISCORD and ONLYOFFICE ----------------------------- #
 flatpak install flathub com.discordapp.Discord
