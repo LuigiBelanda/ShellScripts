@@ -2,14 +2,26 @@
 
 echo ""
 echo "===================="
-echo "WGET - CURL - GPG"
+echo "WGET - CURL - GPG - APT-TRANSPORT-HTTPS"
 echo "===================="
 echo ""
-# ----------------------------- WGET, CURL and GPG ----------------------------- #
+# ----------------------------- WGET, CURL, GPG and APT-TRANSPORT-HTTPS ----------------------------- #
 sudo apt install wget
 sudo apt install curl
 sudo apt install gpg
 sudo apt install apt-transport-https
+
+
+
+echo ""
+echo "===================="
+echo "NODE - NPM"
+echo "===================="
+echo ""
+# ----------------------------- NODEJS and NPM ----------------------------- #
+sudo apt install nodejs
+sudo apt install npm
+
 
 
 echo ""
@@ -60,6 +72,19 @@ rm -f packages.microsoft.gpg
 
 sudo apt update
 sudo apt install code
+
+
+
+echo ""
+echo "===================="
+echo "ONE DRIVER"
+echo "===================="
+echo ""
+# ----------------------------- DEB ONE DRIVER ----------------------------- #
+echo 'deb http://download.opensuse.org/repositories/home:/jstaf/xUbuntu_20.04/ /' | sudo tee /etc/apt/sources.list.d/home:jstaf.list
+curl -fsSL https://download.opensuse.org/repositories/home:jstaf/xUbuntu_20.04/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/home_jstaf.gpg > /dev/null
+sudo apt update
+sudo apt install onedriver
 
 
 
