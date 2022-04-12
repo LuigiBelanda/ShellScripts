@@ -4,7 +4,7 @@
 <br>
 
 <h2>⭐ Objetivos deste repo</h2>
-<p>Gaurdar alguns Shell Scripts uteis para minha utilização do linux e que caso algum dia eu precise deles, eles estaram aqui!</p>
+<p>Guardar alguns Shell Scripts úteis para minha utilização do linux e que caso algum dia eu precise deles, eles estarão aqui!</p>
 
 <br>
 
