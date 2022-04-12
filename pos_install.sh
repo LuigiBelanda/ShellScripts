@@ -15,12 +15,14 @@ sudo apt install apt-transport-https
 
 echo ""
 echo "========================================="
-echo "NODE - NPM"
+echo "NODE - NPM - YARN - readme-cli-create"
 echo "========================================="
 echo ""
-# ----------------------------- NODEJS and NPM ----------------------------- #
+# ----------------------------- NODE - NPM - YARN - CLI (readme-cli-create) ----------------------------- #
 sudo apt install nodejs
 sudo apt install npm
+npm install --global yarn
+npm i readme-cli-create -g
 
 
 
