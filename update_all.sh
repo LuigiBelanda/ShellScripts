@@ -11,7 +11,7 @@ sudo apt full-upgrade -y
 # node
 sudo npm cache clean -f
 sudo npm install -g n
-sudo n stalbe
+sudo n stable
 
 # snap and flatpak
 flatpak update -y 
