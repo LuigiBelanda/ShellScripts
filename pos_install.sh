@@ -19,6 +19,7 @@ echo "NODE - NPM - YARN - readme-cli-create"
 echo "========================================="
 echo ""
 # ----------------------------- NODE - NPM - YARN - CLI (readme-cli-create) ----------------------------- #
+sudo apt install npm
 sudo npm cache clean -f
 sudo npm install -g n
 sudo n stable
