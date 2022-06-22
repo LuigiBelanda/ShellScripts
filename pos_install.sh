@@ -150,3 +150,11 @@ echo ""
 # ----------------------------- FLATPAK DISCORD and ONLYOFFICE ----------------------------- #
 flatpak install flathub com.discordapp.Discord
 flatpak install flathub org.onlyoffice.desktopeditors
+
+echo ""
+echo "========================================="
+echo "BITWARDEN"
+echo "========================================="
+echo ""
+# ----------------------------- SNAP BITWARDEN ----------------------------- #
+sudo snap install bitwarden
