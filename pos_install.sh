@@ -23,8 +23,8 @@ sudo apt install npm
 sudo npm cache clean -f
 sudo npm install -g n
 sudo n stable
-npm install --global yarn
-npm i readme-cli-create -g
+sudo npm install --global yarn
+sudo npm i readme-cli-create -g
 
 
 
