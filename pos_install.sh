@@ -30,13 +30,13 @@ sudo npm i readme-cli-create -g
 
 echo ""
 echo "========================================="
-echo "ZSH"
+echo "FISH SHELL"
 echo "========================================="
 echo ""
-# ----------------------------- ZSH ----------------------------- #
-sudo apt install zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
+# ----------------------------- FISH ----------------------------- #
+sudo apt install fish
+chsh -s /usr/bin/fish
+mkdir -p ~/.config/fish
 
 
 echo ""
@@ -150,6 +150,8 @@ echo ""
 # ----------------------------- FLATPAK DISCORD and ONLYOFFICE ----------------------------- #
 flatpak install flathub com.discordapp.Discord
 flatpak install flathub org.onlyoffice.desktopeditors
+
+
 
 echo ""
 echo "========================================="
