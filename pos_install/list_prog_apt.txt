@@ -1,0 +1,10 @@
+wget
+curl
+gpg
+apt-transport-https
+npm
+git
+snapd
+flatpak
+--reinstall ca-certificates
+gnome-software-plugin-flatpak
