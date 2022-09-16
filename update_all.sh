@@ -3,6 +3,7 @@
 # ----------------------------- UPDATE (snaps, flatpaks e pacotes deb, etc) ----------------------------- #
 ## Removendo travas eventuais do apt ##
 sudo rm /var/lib/dpkg/lock-frontend
+sudo rm /var/lib/dpkg/lock
 sudo rm /var/cache/apt/archives/lock
 
 ## Adicionando/Confirmando arquitetura de 32 bits ##

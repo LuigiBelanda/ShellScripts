@@ -34,7 +34,7 @@ function init {
 
 function rem_locks {
     # Removendo travas eventuais do apt #
-    sudo rm /var/lib/dpkg/lock-frontend ; sudo rm /var/cache/apt/archives/lock ;
+    sudo rm /var/lib/dpkg/lock-frontend ; sudo rm /var/cache/apt/archives/lock ; sudo rm /var/lib/dpkg/lock ;
 
     # Adicionando/Confirmando arquitetura de 32 bits #
     sudo dpkg --add-architecture i386
