@@ -2,7 +2,6 @@ wget
 curl
 gpg
 apt-transport-https
-npm
 git
 snapd
 flatpak

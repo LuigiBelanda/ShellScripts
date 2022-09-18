@@ -2,11 +2,16 @@
 
 echo ""
 echo "========================================="
-echo "UPDATE NODE NA YARN (STABLE)"
+echo "UPDATE NODE - YARN (STABLE)"
 echo "========================================="
 echo ""
 
-sudo npm cache clean -f
-sudo npm install -g n
+sudo apt install npm -y
+sudo npm install npm -g
+
+sudo npm cache clean --force
+sudo npm install n -g
+
+# https://github.com/tj/n 
 sudo n stable
-sudo npm install --global yarn
+sudo npm install yarn -g

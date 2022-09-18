@@ -6,33 +6,38 @@
 
 dir=$HOME/Downloads/ShellScripts/pos_install
 
-function init {
+init() {
     echo 
     echo "Selecione uma opção!"
     echo
-    echo "1 - Instalar programas (remover travas, instalar snaps, flatpaks, deb etc)"
+    echo "1 - Instalar programas (instalar snaps, flatpaks, deb etc)"
     echo "2 - Criar pastas pessoais e mover arquivos (SOMENTE APÓS TERMINAR A INSTALAÇÃO)"
     echo "3 - Instalar Fish Shell e Starship (irá sair do script no final!)"
-    echo "4 - Sair do Script"
+    echo "4 - Install NodeJS + NPM + Yarn"
+    echo "5 - Config Git (SOMENTE DEPOIS DO PASSO 1)"
+    echo "6 - Sair do Script"
     echo
     echo "Verifique se o arquivo ~/.config/fish/config.fish tem a linha (starship init fish | source)"
     echo 
+    echo "Qual opção você escolhe?"
 
     while :
     do
         read opcao_selecionada
         case $opcao_selecionada in
              
-            1) rem_locks;;
+            1) install_apts;;
             2) move_dir;;
             3) install_fish;;
-            4) exit
+            4) install_node_npm_yarn;;
+            5) config_git;;
+            6) exit
 
         esac
     done
 }
 
-function rem_locks {
+rem_locks() {
     # Removendo travas eventuais do apt #
     sudo rm /var/lib/dpkg/lock-frontend ; sudo rm /var/cache/apt/archives/lock ; sudo rm /var/lib/dpkg/lock ;
 
@@ -41,12 +46,11 @@ function rem_locks {
 
     # Atualizando o repositório #
     sudo apt update -y
-
-    # proximo passo
-    install_apts
 }
 
-function install_apts {
+install_apts() {
+    rem_locks
+
     # lendo arquivo com apps apt
     while read line; do
         sudo apt install $line -y
@@ -57,8 +61,6 @@ function install_apts {
     sudo npm install -g n
     sudo n stable
     sudo npm install --global yarn
-
-    
 
     # flat repo
     flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
@@ -71,7 +73,7 @@ function install_apts {
     install_snap_and_flat
 }
 
-function install_snap_and_flat {
+install_snap_and_flat() {
     # lendo arquivo com apps snap
     while read line; do
         sudo snap install $line
@@ -86,7 +88,7 @@ function install_snap_and_flat {
     install_deb
 }
 
-function install_deb {
+install_deb() {
     # Code
     wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
     sudo install -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.d/
@@ -125,9 +127,11 @@ function install_deb {
     sudo apt full-upgrade -y 
     sudo apt autoclean -y 
     sudo apt autoremove -y 
+
+    init
 }
 
-function move_dir {
+move_dir() {
     # Criando pastas de organização pessoal
     mkdir $HOME/Programming -m 777
     mkdir $HOME/OneDriver
@@ -136,9 +140,13 @@ function move_dir {
 
     # Movendo os scripts para a nova pasta Programming para melhor organização
     mv $HOME/Downloads/ShellScripts $HOME/Programming/
+
+    init
 }
 
-function install_fish {
+install_fish() {
+    rem_locks
+
     # Fish
     sudo apt install fish
     chsh -s /usr/bin/fish
@@ -147,7 +155,7 @@ function install_fish {
     # Starship (baixando - criando arquivo de config - colocando preset)
     curl -sS https://starship.rs/install.sh | sh
 
-    # add na linha 3 do arquivo config.fish a linha (starship init fish | source)
+    # add na linha 3 do arquivo config.fish o conteúdo (starship init fish | source)
     sed -i "3i starship init fish | source" ~/.config/fish/config.fish
 
     # criando arquivos de config e add preset
@@ -155,6 +163,50 @@ function install_fish {
     starship preset bracketed-segments > ~/.config/starship.toml
 
     exit
+}
+
+install_node_npm_yarn() {
+    rem_locks
+
+    sudo apt install npm -y
+    sudo npm install npm -g
+    sudo corepack enable
+
+    sudo npm cache clean --force
+    sudo npm install n -g
+
+    # https://github.com/tj/n 
+    sudo n stable
+
+    sudo npm install yarn -g
+
+    echo
+    echo "Versões (Node - NPM - Yarn)"
+    node -v
+    npm -v
+    yarn -v
+
+    init
+}
+
+config_git () {
+    echo 
+    echo "CONFIG DO GIT"
+    echo "Username Git:"
+    read userGit
+    echo
+    echo "Email Git:"
+    read emailGit
+
+    git config --global user.name $userGit
+    git config --global user.email $emailGit
+
+    echo
+    echo "Dados Registrados"
+    git config user.name
+    git config user.email
+
+    init
 }
 
 
