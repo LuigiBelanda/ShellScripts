@@ -1,12 +1,8 @@
 #!/usr/bin/env bash
 
-
-
 # Author: Luigi Belanda
 # OS: Pop!_Os 22.04 LTS
 # Terminal: Fish + Starship
-
-
 
 # =================== COLORS ===================
 # https://stackoverflow.com/questions/5947742/how-to-change-the-output-color-of-echo-in-linux
@@ -15,43 +11,67 @@
 Color_Off='\033[0m' # Text Reset
 
 # Regular Colors
-Red='\033[0;31m'    # Red
-Green='\033[0;32m'  # Green
+Red='\033[0;31m'   # Red
+Green='\033[0;32m' # Green
 
 # Bold High Intensity
-BIRed='\033[1;91m'    # Red
-BIGreen='\033[1;92m'  # Green
+BIRed='\033[1;91m'   # Red
+BIGreen='\033[1;92m' # Green
 
+set dir $HOME/Downloads/ShellScripts/
+echo -e "${BIRed}VAR DIR = $HOME/Downloads/ShellScripts/${BIRed} ${Color_Off}${Color_Off}"
 
+if [[ -d "$HOME/Programming/ShellScripts/" ]]; then
+    if [[ -d "$HOME/Programming/ShellScripts/pos_install" ]]; then
+        if [[ -e "$HOME/Programming/ShellScripts/pos_install/list_prog_snap.txt" ]]; then
+            if [[ -e "$HOME/Programming/ShellScripts/pos_install/list_prog_flat.txt" ]]; then
+                if [[ -e "$HOME/Programming/ShellScripts/pos_install/list_prog_deb.txt" ]]; then
+                    if [[ -e "$HOME/Programming/ShellScripts/pos_install/list_prog_apt.txt" ]]; then
+                        echo
+                        echo -e "${Color_Off}$HOME/Programming/ShellScripts/${Color_Off} ${BIGreen}FOLDER EXIST!${BIGreen}"
+                        echo -e "${Color_Off}$HOME/Programming/ShellScripts/pos_install${Color_Off} ${BIGreen}FOLDER EXIST!${BIGreen}"
+                        echo -e "${Color_Off}$HOME/Programming/ShellScripts/pos_install/list_prog_snap.txt${Color_Off} ${BIGreen}FILE EXIST!${BIGreen}"
+                        echo -e "${Color_Off}$HOME/Programming/ShellScripts/pos_install/list_prog_flat.txt${Color_Off} ${BIGreen}FILE EXIST!${BIGreen}"
+                        echo -e "${Color_Off}$HOME/Programming/ShellScripts/pos_install/list_prog_deb.txt${Color_Off} ${BIGreen}FILE EXIST!${BIGreen}"
+                        echo -e "${Color_Off}$HOME/Programming/ShellScripts/pos_install/list_prog_apt.txt${Color_Off} ${BIGreen}FILE EXIST!${BIGreen}"
 
-# =================== SET VAR DIR ===================
-set dir $HOME/Downloads/ShellScripts/pos_install/
-echo -e "${BIRed}VAR DIR = $HOME/Downloads/ShellScripts/pos_install/${BIRed}"
-echo
-
-
-
-
-# =================== VERIFY REPOS AND FILES EXISTS ===================
-if [[ -d "$HOME/Programming/ShellScripts/pos_install" ]]; then
-    if [[ -e "$HOME/Programming/ShellScripts/pos_install/list_prog_snap.txt" ]]; then
-        echo -e "${Color_Off}$HOME/Programming/ShellScripts/pos_install/list_prog_snap.txt${Color_Off} ${BIGreen}FILE EXIST!${BIGreen}"
-        if [[ -e "$HOME/Programming/ShellScripts/pos_install/list_prog_flat.txt" ]]; then
-            echo -e "${Color_Off}$HOME/Programming/ShellScripts/pos_install/list_prog_flat.txt${Color_Off} ${BIGreen}FILE EXIST!${BIGreen}"
-            if [[ -e "$HOME/Programming/ShellScripts/pos_install/list_prog_deb.txt" ]]; then
-                echo -e "${Color_Off}$HOME/Programming/ShellScripts/pos_install/list_prog_deb.txt${Color_Off} ${BIGreen}FILE EXIST!${BIGreen}"
-                if [[ -e "$HOME/Programming/ShellScripts/pos_install/list_prog_apt.txt" ]]; then
-                    echo -e "${Color_Off}$HOME/Programming/ShellScripts/pos_install/list_prog_apt.txt${Color_Off} ${BIGreen}FILE EXIST!${BIGreen}"
-                    set dir $HOME/Programming/ShellScripts/pos_install/
-                    echo
-                    echo -e "${BIGreen}NEW VAR DIR = $HOME/Programming/ShellScripts/pos_install/${BIGreen}"
+                        set dir $HOME/Programming/ShellScripts/
+                        echo
+                        echo -e "${BIGreen}NEW VAR DIR = $HOME/Programming/ShellScripts/${BIGreen} ${Color_Off}${Color_Off}"
+                    else
+                        echo -e "${BIRed}FILE LIST_PROG_APT.TXT DOES NOT EXISTS${BIRed} ${Color_Off}${Color_Off}"
+                    fi
+                else
+                    echo -e "${BIRed}FILE LIST_PROG_DEB.TXT DOES NOT EXISTS${BIRed} ${Color_Off}${Color_Off}"
                 fi
+            else
+                echo -e "${BIRed}FILE LIST_PROG_FLAT.TXT DOES NOT EXISTS${BIRed} ${Color_Off}${Color_Off}"
             fi
+        else
+            echo -e "${BIRed}FILE LIST_PROG_SNAP.TXT DOES NOT EXISTS${BIRed} ${Color_Off}${Color_Off}"
         fi
+    else
+        echo -e "${BIRed}$HOME/Programming/ShellScripts/pos_install - PATH INCORRECT OR FOLDERS NOT CREATED AND FILES NOT MOVED${BIRed} ${Color_Off}${Color_Off}"
     fi
+else
+    echo -e "${BIGreen}CREATING FOLDER $HOME/Programming and mkdir $HOME/OneDriver (OneDriver/Pessoal - OneDriver/FATEC)${BIGreen} ${Color_Off}${Color_Off}"
+
+    # create folders
+    mkdir $HOME/Programming -m 777
+    mkdir $HOME/OneDriver
+    mkdir -p $HOME/OneDriver/FATEC
+    mkdir -p $HOME/OneDriver/Pessoal
+
+    echo -e "${BIGreen}MOVE FOLDER $HOME/Downloads/ShellScripts for $HOME/Programming/ShellScripts${BIGreen} ${Color_Off}${Color_Off}"
+    echo -e "${BIGreen}RECOMENDADED: RESTART TERMINAL ${BIGreen} ${Color_Off}${Color_Off}"
+
+    # mv scripts
+    mv $HOME/Downloads/ShellScripts $HOME/Programming/
+
+    set dir $HOME/Programming/ShellScripts/
+    echo
+    echo -e "${BIGreen}NEW VAR DIR = $HOME/Programming/ShellScripts/${BIGreen} ${Color_Off}${Color_Off}"
 fi
-
-
 
 # =================== FUNCTIONS ===================
 init() {
@@ -59,13 +79,13 @@ init() {
     echo -e "${Color_Off}Selecione uma opção! De preferência execute na seguinte os passos seguintes!${Color_Off}"
     echo
     echo "1 - Instalar programas (instalar snaps, flatpaks, deb etc)"
-    echo "2 - Criar pastas pessoais e mover arquivos (SOMENTE APÓS TERMINAR A INSTALAÇÃO DO PASSO 1)"
-    echo "3 - Instalar Fish Shell e Starship (irá sair do script no final!)"
-    echo "4 - Install NodeJS + NPM + Yarn"
-    echo "5 - Config Git (SOMENTE DEPOIS DO PASSO 1)"
-    echo "6 - Sair do Script"
+    echo "2 - Instalar Fish Shell e Starship (irá sair do script no final!)"
+    echo "3 - Install NodeJS + NPM + Yarn"
+    echo "4 - Config Git (SOMENTE DEPOIS DO PASSO 1)"
+    echo "5 - Sair do Script"
     echo
     echo "Verifique se o arquivo ~/.config/fish/config.fish tem a linha (starship init fish | source)"
+    echo "Verifique se os paths estão certos ($HOME/Programming/ShellScripts)"
     echo
     echo "Qual opção você escolhe?"
 
@@ -74,11 +94,10 @@ init() {
         case $opcao_selecionada in
 
         1) install_apts ;;
-        2) move_dir ;;
-        3) install_fish ;;
-        4) install_node_npm_yarn ;;
-        5) config_git ;;
-        6) exit ;;
+        2) install_fish ;;
+        3) install_node_npm_yarn ;;
+        4) config_git ;;
+        5) exit ;;
 
         esac
     done
@@ -98,12 +117,13 @@ rem_locks() {
 }
 
 install_apts() {
+    # functions
     rem_locks
 
     # read lines -> list_prog_apt.txt
     while read line; do
         sudo apt install $line -y
-    done <"$dir/list_prog_apt.txt"
+    done <"$dir/pos_install/list_prog_apt.txt"
 
     # flat repo
     flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
@@ -120,12 +140,12 @@ install_snap_and_flat() {
     # read lines -> list_prog_snap.txt
     while read line; do
         sudo snap install $line
-    done <"$dir/list_prog_snap.txt"
+    done <"$dir/pos_install/list_prog_snap.txt"
 
     # read lines -> list_prog_flat.txt
     while read line; do
         sudo flatpak install -y flathub $line
-    done <"$dir/list_prog_flat.txt"
+    done <"$dir/pos_install/list_prog_flat.txt"
 
     # next
     install_deb
@@ -162,7 +182,7 @@ install_deb() {
     # read lines -> list_prog_deb.txt
     while read line; do
         sudo apt install $line -y
-    done <"$dir/list_prog_deb.txt"
+    done <"$dir/pos_install/list_prog_deb.txt"
 
     sudo apt update -y
     sudo apt dist-upgrade -y
@@ -174,46 +194,47 @@ install_deb() {
     init
 }
 
-move_dir() {
-    # create folders
-    mkdir $HOME/Programming -m 777
-    mkdir $HOME/OneDriver
-    mkdir -p $HOME/OneDriver/FATEC
-    mkdir -p $HOME/OneDriver/Pessoal
-
-    # mv scripts
-    mv $HOME/Downloads/ShellScripts $HOME/Programming/
-
-    init
-}
-
 install_fish() {
+    # functions
     rem_locks
 
-    # Fish
-    sudo apt install fish
-    chsh -s /usr/bin/fish
-    mkdir -p ~/.config/fish
+    if [[ -d "$HOME/Programming/ShellScripts/" ]]; then
+        # Fish
+        sudo apt install fish
+        chsh -s /usr/bin/fish
+        mkdir -p ~/.config/fish
 
-    # Fish alias
-    alias update_all $HOME/Programming/ShellScripts/update_all.sh
-    chmod +x $HOME/Programming/ShellScripts/update_all.sh
+        # Fisher and plugins
+        curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
+        fisher install jorgebucaran/autopair.fish
 
-    # Fisher and plugins
-    curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
-    fisher install jorgebucaran/autopair.fish
+        # Starship (download)
+        curl -sS https://starship.rs/install.sh | sh
 
-    # Starship (download)
-    curl -sS https://starship.rs/install.sh | sh
+        # create files (config and add preset)
+        mkdir -p ~/.config && touch ~/.config/starship.toml
+        starship preset bracketed-segments >~/.config/starship.toml
 
-    # create files (config and add preset)
-    mkdir -p ~/.config && touch ~/.config/starship.toml
-    starship preset bracketed-segments >~/.config/starship.toml
+        # add in line 3 -> arquivo config.fish -> content (starship init fish | source)
+        sed -i "3i starship init fish | source" ~/.config/fish/config.fish
 
-    # add in line 3 -> arquivo config.fish -> content (starship init fish | source)
-    sed -i "3i starship init fish | source" ~/.config/fish/config.fish
+        # Fish alias
+        if [[ -e "$HOME/Programming/ShellScripts/update_all.sh" ]]; then
+            alias update_all $HOME/Programming/ShellScripts/update_all.sh
+            chmod +x $HOME/Programming/ShellScripts/update_all.sh
+        fi
 
-    exit
+        # set default shell
+        which fish
+        echo /usr/local/bin/fish | sudo tee -a /etc/shells
+        chsh -s /usr/local/bin/fish
+
+        exit
+    else
+        echo -e "${BIRed}ERROR! $HOME/Programming/ShellScripts/update_all.sh NOT EXISTS OR PATH INCORRECT${BIRed} ${Color_Off}${Color_Off}"
+        init
+    fi
+
 }
 
 install_node_npm_yarn() {
@@ -246,29 +267,32 @@ install_node_npm_yarn() {
 }
 
 config_git() {
-    # get data
-    echo
-    echo "CONFIG DO GIT"
-    echo "Username Git:"
-    read userGit
-    echo
-    echo "Email Git:"
-    read emailGit
+    if [[ -d "$HOME/Programming/ShellScripts/" ]]; then
+        if [[ -d "$HOME/Programming/ShellScripts/dotfiles" ]]; then
+            if [[ -e "$HOME/Programming/ShellScripts/dotfiles/.gitconfig" ]]; then
+                #remove ~/.gitconfig file 
+                rm ~/.gitconfig
 
-    # add data in git config
-    git config --global user.name $userGit
-    git config --global user.email $emailGit
+                # create a simbolic link 
+                ln -s ~/Programming/ShellScripts/dotfiles/.gitconfig ~/.gitconfig
 
-    # show data
-    echo
-    echo "Dados Registrados"
-    git config user.name
-    git config user.email
+                echo
+                echo -e "${BIGreen}Create a simbolic link (~/Programming/ShellScripts/dotfiles/.gitconfig ----> ~/.gitconfig)${BIGreen} ${Color_Off}${Color_Off}"
+            else
+                echo
+                echo -e "${BIRed}$HOME/Programming/ShellScripts/dotfiles/.gitconfig - FILE DOES NOT EXISTS OR PATH IS INCORRECT${BIRed} ${Color_Off}${Color_Off}"
+            fi
+        else
+            echo
+            echo -e "${BIRed}$HOME/Programming/ShellScripts/dotfiles - DOTFILES FOLDER DOES NOT EXISTS OR PATH IS INCORRECT${BIRed} ${Color_Off}${Color_Off}"
+        fi
+    else
+        echo
+        echo -e "${BIRed}$HOME/Programming/ShellScripts/ - PATH IS INCORRECT OR FOLDER NOT EXISTS${BIRed} ${Color_Off}${Color_Off}"
+    fi
 
     init
 }
-
-
 
 # =================== INIT FUNC / PROGRAM ===================
 init
