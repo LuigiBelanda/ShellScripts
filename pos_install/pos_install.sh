@@ -2,7 +2,17 @@
 
 # Author: Luigi Belanda
 # OS: Pop!_Os 22.04 LTS
-# Terminal: Fish + Starship
+# Terminal: Fish + Starship + FiraCode Nerd Font
+
+# OS themes:  
+# Cursor (Sweet-cursors - https://www.gnome-look.org/p/1393084)
+# Apps (Sweet-Dark-v40 - https://www.gnome-look.org/p/1253385/)
+# shell (Sweet-Dark-v40 - https://www.gnome-look.org/p/1253385/)
+# icons (default)
+
+# Extensions GNOME
+# User theme
+# Sound Input & Output Device 
 
 # =================== COLORS ===================
 # https://stackoverflow.com/questions/5947742/how-to-change-the-output-color-of-echo-in-linux
@@ -161,10 +171,6 @@ install_deb() {
     # OneDrive
     echo 'deb http://download.opensuse.org/repositories/home:/jstaf/xUbuntu_20.04/ /' | sudo tee /etc/apt/sources.list.d/home:jstaf.list
     curl -fsSL https://download.opensuse.org/repositories/home:jstaf/xUbuntu_20.04/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/home_jstaf.gpg >/dev/null
-
-    # Insomnia
-    echo "deb [trusted=yes arch=amd64] https://download.konghq.com/insomnia-ubuntu/ default all" |
-        sudo tee -a /etc/apt/sources.list.d/insomnia.list
 
     # Brave
     sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
