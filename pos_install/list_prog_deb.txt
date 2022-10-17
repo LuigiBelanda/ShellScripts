@@ -1,5 +1,3 @@
 code
 onedriver
-insomnia
 brave-browser
-beekeeper-studio
