@@ -28,19 +28,19 @@ Green='\033[0;32m' # Green
 BIRed='\033[1;91m'   # Red
 BIGreen='\033[1;92m' # Green
 
-if [[ -d "home/luigibelanda/Programming/ShellScripts/" ]]; then
-    if [[ -d "home/luigibelanda/Programming/ShellScripts/pos_install" ]]; then
-        if [[ -e "home/luigibelanda/Programming/ShellScripts/pos_install/list_prog_snap.txt" ]]; then
-            if [[ -e "home/luigibelanda/Programming/ShellScripts/pos_install/list_prog_flat.txt" ]]; then
-                if [[ -e "home/luigibelanda/Programming/ShellScripts/pos_install/list_prog_deb.txt" ]]; then
-                    if [[ -e "home/luigibelanda/Programming/ShellScripts/pos_install/list_prog_apt.txt" ]]; then
+if [[ -d "/home/luigibelanda/Programming/ShellScripts/" ]]; then
+    if [[ -d "/home/luigibelanda/Programming/ShellScripts/pos_install" ]]; then
+        if [[ -e "/home/luigibelanda/Programming/ShellScripts/pos_install/list_prog_snap.txt" ]]; then
+            if [[ -e "/home/luigibelanda/Programming/ShellScripts/pos_install/list_prog_flat.txt" ]]; then
+                if [[ -e "/home/luigibelanda/Programming/ShellScripts/pos_install/list_prog_deb.txt" ]]; then
+                    if [[ -e "/home/luigibelanda/Programming/ShellScripts/pos_install/list_prog_apt.txt" ]]; then
                         echo
-                        echo -e "${Color_Off}home/luigibelanda/Programming/ShellScripts/${Color_Off} ${BIGreen}FOLDER EXIST!${BIGreen}"
-                        echo -e "${Color_Off}home/luigibelanda/Programming/ShellScripts/pos_install${Color_Off} ${BIGreen}FOLDER EXIST!${BIGreen}"
-                        echo -e "${Color_Off}home/luigibelanda/Programming/ShellScripts/pos_install/list_prog_snap.txt${Color_Off} ${BIGreen}FILE EXIST!${BIGreen}"
-                        echo -e "${Color_Off}home/luigibelanda/Programming/ShellScripts/pos_install/list_prog_flat.txt${Color_Off} ${BIGreen}FILE EXIST!${BIGreen}"
-                        echo -e "${Color_Off}home/luigibelanda/Programming/ShellScripts/pos_install/list_prog_deb.txt${Color_Off} ${BIGreen}FILE EXIST!${BIGreen}"
-                        echo -e "${Color_Off}home/luigibelanda/Programming/ShellScripts/pos_install/list_prog_apt.txt${Color_Off} ${BIGreen}FILE EXIST!${BIGreen}"
+                        echo -e "${Color_Off}/home/luigibelanda/Programming/ShellScripts/${Color_Off} ${BIGreen}FOLDER EXIST!${BIGreen}"
+                        echo -e "${Color_Off}/home/luigibelanda/Programming/ShellScripts/pos_install${Color_Off} ${BIGreen}FOLDER EXIST!${BIGreen}"
+                        echo -e "${Color_Off}/home/luigibelanda/Programming/ShellScripts/pos_install/list_prog_snap.txt${Color_Off} ${BIGreen}FILE EXIST!${BIGreen}"
+                        echo -e "${Color_Off}/home/luigibelanda/Programming/ShellScripts/pos_install/list_prog_flat.txt${Color_Off} ${BIGreen}FILE EXIST!${BIGreen}"
+                        echo -e "${Color_Off}/home/luigibelanda/Programming/ShellScripts/pos_install/list_prog_deb.txt${Color_Off} ${BIGreen}FILE EXIST!${BIGreen}"
+                        echo -e "${Color_Off}/home/luigibelanda/Programming/ShellScripts/pos_install/list_prog_apt.txt${Color_Off} ${BIGreen}FILE EXIST!${BIGreen}"
                     else
                         echo -e "${BIRed}FILE LIST_PROG_APT.TXT DOES NOT EXISTS${BIRed} ${Color_Off}${Color_Off}"
                     fi
@@ -54,19 +54,19 @@ if [[ -d "home/luigibelanda/Programming/ShellScripts/" ]]; then
             echo -e "${BIRed}FILE LIST_PROG_SNAP.TXT DOES NOT EXISTS${BIRed} ${Color_Off}${Color_Off}"
         fi
     else
-        echo -e "${BIRed}home/luigibelanda/Programming/ShellScripts/pos_install - PATH INCORRECT OR FOLDERS NOT CREATED AND FILES NOT MOVED${BIRed} ${Color_Off}${Color_Off}"
+        echo -e "${BIRed}/home/luigibelanda/Programming/ShellScripts/pos_install - PATH INCORRECT OR FOLDERS NOT CREATED AND FILES NOT MOVED${BIRed} ${Color_Off}${Color_Off}"
     fi
 else
-    echo -e "${BIGreen}CREATING FOLDER home/luigibelanda/Programming and mkdir home/luigibelanda/OneDriver (OneDriver/Pessoal - OneDriver/FATEC)${BIGreen} ${Color_Off}${Color_Off}"
+    echo -e "${BIGreen}CREATING FOLDER /home/luigibelanda/Programming and mkdir /home/luigibelanda/OneDriver (OneDriver/Pessoal - OneDriver/FATEC)${BIGreen} ${Color_Off}${Color_Off}"
 
     # create folders
-    mkdir home/luigibelanda/Programming -m 777
-    mkdir home/luigibelanda/OneDriver
-    mkdir -p home/luigibelanda/OneDriver/FATEC
-    mkdir -p home/luigibelanda/OneDriver/Pessoal
+    mkdir /home/luigibelanda/Programming -m 777
+    mkdir /home/luigibelanda/OneDriver
+    mkdir -p /home/luigibelanda/OneDriver/FATEC
+    mkdir -p /home/luigibelanda/OneDriver/Pessoal
 
     # mv scripts
-    mv home/luigibelanda/Downloads/ShellScripts home/luigibelanda/Programming/
+    mv /home/luigibelanda/Downloads/ShellScripts /home/luigibelanda/Programming/
 fi
 
 # =================== FUNCTIONS ===================
@@ -81,7 +81,7 @@ init() {
     echo "5 - Sair do Script"
     echo
     echo "Verifique se o arquivo ~/.config/fish/config.fish tem a linha (starship init fish | source)"
-    echo "Verifique se os paths estão certos (home/luigibelanda/Programming/ShellScripts)"
+    echo "Verifique se os paths estão certos (/home/luigibelanda/Programming/ShellScripts)"
     echo
     echo "Qual opção você escolhe?"
 
@@ -186,7 +186,7 @@ install_fish() {
     # functions
     rem_locks
 
-    if [[ -d "home/luigibelanda/Programming/ShellScripts/" ]]; then
+    if [[ -d "/home/luigibelanda/Programming/ShellScripts/" ]]; then
         # Fish
         sudo apt install fish
         chsh -s /usr/bin/fish
@@ -207,9 +207,9 @@ install_fish() {
         sed -i "3i starship init fish | source" ~/.config/fish/config.fish
 
         # Fish alias
-        if [[ -e "home/luigibelanda/Programming/ShellScripts/update_all.sh" ]]; then
-            alias update_all home/luigibelanda/Programming/ShellScripts/update_all.sh
-            chmod +x home/luigibelanda/Programming/ShellScripts/update_all.sh
+        if [[ -e "/home/luigibelanda/Programming/ShellScripts/update_all.sh" ]]; then
+            alias update_all /home/luigibelanda/Programming/ShellScripts/update_all.sh
+            chmod +x /home/luigibelanda/Programming/ShellScripts/update_all.sh
         fi
 
         # set default shell
@@ -221,7 +221,7 @@ install_fish() {
 
         exit
     else
-        echo -e "${BIRed}ERROR! home/luigibelanda/Programming/ShellScripts/update_all.sh NOT EXISTS OR PATH INCORRECT${BIRed} ${Color_Off}${Color_Off}"
+        echo -e "${BIRed}ERROR! /home/luigibelanda/Programming/ShellScripts/update_all.sh NOT EXISTS OR PATH INCORRECT${BIRed} ${Color_Off}${Color_Off}"
         init
     fi
 
@@ -257,9 +257,9 @@ install_node_npm_yarn() {
 }
 
 config_git() {
-    if [[ -d "home/luigibelanda/Programming/ShellScripts/" ]]; then
-        if [[ -d "home/luigibelanda/Programming/ShellScripts/dotfiles" ]]; then
-            if [[ -e "home/luigibelanda/Programming/ShellScripts/dotfiles/.gitconfig" ]]; then
+    if [[ -d "/home/luigibelanda/Programming/ShellScripts/" ]]; then
+        if [[ -d "/home/luigibelanda/Programming/ShellScripts/dotfiles" ]]; then
+            if [[ -e "/home/luigibelanda/Programming/ShellScripts/dotfiles/.gitconfig" ]]; then
                 #remove ~/.gitconfig file 
                 rm ~/.gitconfig
 
@@ -270,15 +270,15 @@ config_git() {
                 echo -e "${BIGreen}Create a simbolic link (~/Programming/ShellScripts/dotfiles/.gitconfig ----> ~/.gitconfig)${BIGreen} ${Color_Off}${Color_Off}"
             else
                 echo
-                echo -e "${BIRed}home/luigibelanda/Programming/ShellScripts/dotfiles/.gitconfig - FILE DOES NOT EXISTS OR PATH IS INCORRECT${BIRed} ${Color_Off}${Color_Off}"
+                echo -e "${BIRed}/home/luigibelanda/Programming/ShellScripts/dotfiles/.gitconfig - FILE DOES NOT EXISTS OR PATH IS INCORRECT${BIRed} ${Color_Off}${Color_Off}"
             fi
         else
             echo
-            echo -e "${BIRed}home/luigibelanda/Programming/ShellScripts/dotfiles - DOTFILES FOLDER DOES NOT EXISTS OR PATH IS INCORRECT${BIRed} ${Color_Off}${Color_Off}"
+            echo -e "${BIRed}/home/luigibelanda/Programming/ShellScripts/dotfiles - DOTFILES FOLDER DOES NOT EXISTS OR PATH IS INCORRECT${BIRed} ${Color_Off}${Color_Off}"
         fi
     else
         echo
-        echo -e "${BIRed}home/luigibelanda/Programming/ShellScripts/ - PATH IS INCORRECT OR FOLDER NOT EXISTS${BIRed} ${Color_Off}${Color_Off}"
+        echo -e "${BIRed}/home/luigibelanda/Programming/ShellScripts/ - PATH IS INCORRECT OR FOLDER NOT EXISTS${BIRed} ${Color_Off}${Color_Off}"
     fi
 
     init
