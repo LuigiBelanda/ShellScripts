@@ -8,3 +8,4 @@ flatpak
 --reinstall ca-certificates
 gnome-software-plugin-flatpak
 gnome-tweaks
+ubuntu-restricted-extras
