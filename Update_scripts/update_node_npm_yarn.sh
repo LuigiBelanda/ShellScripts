@@ -2,7 +2,7 @@
 
 echo ""
 echo "========================================="
-echo "INSTALL OR UPDATE NODE - YARN (STABLE)"
+echo "INSTALL OR UPDATE NODE - NPM - YARN (STABLE)"
 echo "========================================="
 echo ""
 
