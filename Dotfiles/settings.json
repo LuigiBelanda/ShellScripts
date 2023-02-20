@@ -1,0 +1,99 @@
+{
+    // Workbench Configs
+    "workbench.startupEditor": "newUntitledFile",
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.colorTheme": "Dracula",
+
+    // ============================
+    // ============================
+
+    // Material Icon
+    "material-icon-theme.folders.associations": {},
+    "material-icon-theme.files.associations": {},
+    "material-icon-theme.opacity": 1,
+    "material-icon-theme.folders.theme": "specific",
+    "material-icon-theme.folders.color": "#4c6de6",
+
+    // ============================
+    // ============================
+
+    // Editor configs
+    "editor.bracketPairColorization.enabled": true,
+    "editor.suggestSelection": "first",
+    "editor.fontFamily": "FiraCode Nerd Font",
+    "editor.fontLigatures": true,
+    "editor.fontWeight": "400",
+    "files.autoSave": "afterDelay",
+    "security.workspace.trust.untrustedFiles": "open",
+
+    // ============================
+    // ============================
+
+    // Code Spell - Configs
+    "cSpell.language": "pt,en",
+    "cSpell.userWords": [],
+    "git.ignoreWindowsGit27Warning": true,
+    "editor.minimap.enabled": false,
+
+    // NPM intellisense extension
+    "npm-intellisense.importES6": true,
+    "npm-intellisense.importQuotes": "'",
+    "npm-intellisense.importLinebreak": ";\r\n",
+    "npm-intellisense.importDeclarationType": "const",
+    "npm-intellisense.scanDevDependencies": true,
+    "npm-intellisense.showBuildInLibs": true,
+    "npm-intellisense.recursivePackageJsonLookup": true,
+    "npm-intellisense.packageSubfoldersIntellisense": false,
+
+    "[html]": {
+        "editor.defaultFormatter": "vscode.html-language-features"
+    },
+
+    // ============================
+    // ============================
+
+    // Prettier - Settings / Config
+    "prettier.tabWidth": 4,
+    
+    // Prettier - CSS
+    "[css]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "workbench.editor.untitled.hint": "hidden",
+
+    // Prettier - JS
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+
+    // Prettier - Typescript
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "editor.unicodeHighlight.includeStrings": false, // Regular
+
+    // Prettier - JSON
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+
+    // ============================
+    // ============================
+
+    // Others configs - Typescript
+    "typescript.suggest.autoImports": true,
+
+    // Others configs - JS
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "javascript.suggest.autoImports": true,
+}
+

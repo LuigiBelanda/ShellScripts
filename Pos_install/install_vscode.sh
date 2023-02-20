@@ -32,7 +32,18 @@ sudo apt full-upgrade -y
 sudo apt autoclean -y
 sudo apt autoremove -y
 
+echo 
+echo "============================"
+echo 
+echo "SUDO APT INSTALL VSCODE"
+echo 
+echo "============================"
+echo 
+
 sudo apt install code
+
+echo 
+echo 
 
 sudo apt update -y
 sudo apt dist-upgrade -y
@@ -44,7 +55,15 @@ sudo apt autoremove -y
 echo 
 echo "============================"
 echo 
-echo "NOW: SYNC SETTINGS - GITHUB"
+echo "CREATE A SIMBOLIC LINK SETTINGS.JSON VSCODE - DOTFILES"
 echo 
 echo "============================"
 echo 
+
+# Remove ~/.config/Code/User/settings.json 
+rm ~/.config/Code/User/settings.json
+echo "rm ~/.config/Code/User/settings.json" 
+
+# Create a simbolic link 
+ln -s ~/Programming/ShellScripts/Dotfiles/settings.json ~/.config/Code/User/settings.json 
+echo "ln -s ~/Programming/ShellScripts/Dotfiles/settings.json ~/.config/Code/User/settings.json "
