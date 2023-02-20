@@ -1,3 +1,0 @@
-com.discordapp.Discord
-org.onlyoffice.desktopeditors
-rest.insomnia.Insomnia
