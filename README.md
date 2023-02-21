@@ -13,7 +13,7 @@
 
 <br>
 
-<h3>:gear: Other_scripts</h3>
+<h3>:gear: Others_scripts</h3>
 <p>A pasta Other_scripts contém alguns scripts que vão ajudar a instalar algumas coisas não tão importantes, mas que podem ser necessárias em algum momento</p>
 
 <br>
