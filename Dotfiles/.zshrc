@@ -120,3 +120,7 @@ zinit light marlonrichert/zsh-autocomplete
 
 # Starship
 eval "$(starship init zsh)"
+
+# PERSONAL ALIAS
+alias upd_all="./Programming/ShellScripts/Update_scripts/update_all.sh"
+alias upd_node="./Programming/ShellScripts/Update_scripts/update_node_npm_yarn.sh"
