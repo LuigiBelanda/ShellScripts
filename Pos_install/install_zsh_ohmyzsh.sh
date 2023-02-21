@@ -43,3 +43,12 @@ echo
 echo "chsh -s $(which zsh)"
 echo
 chsh -s $(which zsh)
+
+echo 
+echo "============================"
+echo 
+echo "INSTALL OH-MY-ZSH"
+echo 
+echo "============================"
+echo 
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"

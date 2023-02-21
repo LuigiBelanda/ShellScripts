@@ -16,15 +16,15 @@ fi
 echo 
 echo "============================"
 echo 
-echo "INSTALL STARSHIP THEME"
+echo "INSTALL STARSHIP PRESET"
 echo 
 echo "============================"
 echo 
 curl -sS https://starship.rs/install.sh | sh
 
-echo "" >> ~./zshrc
-echo "# Starship" >> ~./zshrc
-echo "eval "$(starship init zsh)"" >> ~./zshrc
+echo "" >> ~/.zshrc
+echo "# Starship" >> ~./.zshrc
+echo "eval "$(starship init zsh)"" >> ~/.zshrc
 
 mkdir -p ~/.config && touch ~/.config/starship.toml
 
