@@ -1,3 +1,6 @@
 [user]
 	name = LuigiBelanda
 	email = luigi.belanda.milani@gmail.com
+	signingkey = /home/luigibelanda/.ssh/id_ed25519
+[gpg]
+	format = ssh

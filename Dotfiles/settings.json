@@ -2,7 +2,6 @@
     // Workbench Configs
     "workbench.startupEditor": "newUntitledFile",
     "workbench.iconTheme": "material-icon-theme",
-    "workbench.colorTheme": "Dracula",
 
     // ============================
     // ============================
@@ -95,5 +94,6 @@
     // Others configs - JS
     "javascript.updateImportsOnFileMove.enabled": "always",
     "javascript.suggest.autoImports": true,
+    "workbench.colorTheme": "Dracula",
 }
 
