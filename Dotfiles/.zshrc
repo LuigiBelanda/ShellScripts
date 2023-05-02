@@ -124,3 +124,10 @@ eval "$(starship init zsh)"
 # PERSONAL ALIAS
 alias upd_all="./Programming/ShellScripts/Update_scripts/update_all.sh"
 alias upd_node="./Programming/ShellScripts/Update_scripts/update_node_npm_yarn.sh"
+
+# JAVA
+JAVA_HOME=/home/luigibelanda/Java/jdk-17.0.7
+export JAVA_HOME
+
+PATH=$PATH:$JAVA_HOME/bin
+export PATH
