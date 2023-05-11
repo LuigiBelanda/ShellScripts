@@ -95,6 +95,10 @@
     "javascript.updateImportsOnFileMove.enabled": "always",
     "javascript.suggest.autoImports": true,
     "workbench.colorTheme": "Dracula",
+    
     "redhat.telemetry.enabled": true,
+    "[java]": {
+        "editor.defaultFormatter": "redhat.java"
+    },
 }
 
