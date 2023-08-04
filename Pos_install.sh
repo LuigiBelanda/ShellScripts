@@ -1,21 +1,21 @@
 #!/usr/bin/env bash
 
 # Função para verificar e instalar Flatpak (caso não esteja instalado)
-check_install_flatpak() {
+verificar_instalar_flatpak() {
     if ! command -v flatpak &>/dev/null; then
         sudo apt install flatpak -y
     fi
 }
 
 # Função para verificar e instalar Snap (caso não esteja instalado)
-check_install_snap() {
+verificar_instalar_snap() {
     if ! command -v snap &>/dev/null; then
         sudo apt install snapd -y
     fi
 }
 
 # Função para remover bloqueios do apt
-remove_apt_locks() {
+remover_bloqueios_apt() {
     if [[ -f "/var/lib/dpkg/lock-frontend" ]]; then
         sudo rm /var/lib/dpkg/lock-frontend
     fi
@@ -30,63 +30,63 @@ remove_apt_locks() {
 }
 
 # Função para instalar o Obsidian via Flatpak
-install_obsidian() {
-    check_install_flatpak
-    remove_apt_locks
+instalar_obsidian() {
+    verificar_instalar_flatpak
+    remover_bloqueios_apt
     flatpak install flathub md.obsidian.Obsidian
 }
 
 # Função para instalar o Discord via Flatpak
-install_discord() {
-    check_install_flatpak
-    remove_apt_locks
+instalar_discord() {
+    verificar_instalar_flatpak
+    remover_bloqueios_apt
     flatpak install flathub com.discordapp.Discord
 }
 
 # Função para instalar o Visual Studio Code via Snap
-install_vscode() {
-    check_install_snap
-    remove_apt_locks
+instalar_vscode() {
+    verificar_instalar_snap
+    remover_bloqueios_apt
     sudo snap install code --classic
 }
 
 # Função para instalar o File Shredder via Flatpak
-install_file_shredder() {
-    check_install_flatpak
-    remove_apt_locks
+instalar_file_shredder() {
+    verificar_instalar_flatpak
+    remover_bloqueios_apt
     flatpak install flathub com.github.ADBeveridge.Raider
 }
 
 # Função para instalar o Bitwarden via Snap
-install_bitwarden() {
-    check_install_snap
-    remove_apt_locks
+instalar_bitwarden() {
+    verificar_instalar_snap
+    remover_bloqueios_apt
     sudo snap install bitwarden
 }
 
 # Função para instalar o Authy via Snap
-install_authy() {
-    check_install_snap
-    remove_apt_locks
+instalar_authy() {
+    verificar_instalar_snap
+    remover_bloqueios_apt
     sudo snap install authy
 }
 
 # Função para instalar o Postman via Snap
-install_postman() {
-    check_install_snap
-    remove_apt_locks
+instalar_postman() {
+    verificar_instalar_snap
+    remover_bloqueios_apt
     sudo snap install postman
 }
 
 # Função para instalar o IntelliJ IDEA Community Edition via Snap
-install_intellij() {
-    check_install_snap
-    remove_apt_locks
+instalar_intellij() {
+    verificar_instalar_snap
+    remover_bloqueios_apt
     sudo snap install intellij-idea-community --classic
 }
 
 # Função para configurar o .gitconfig
-configure_gitconfig() {
+configurar_gitconfig() {
     gitconfig_folder="/home/luigibelanda/Área de Trabalho/Programming/ShellScripts/Dotfiles"
     gitconfig_file="$gitconfig_folder/.gitconfig"
 
@@ -111,7 +111,7 @@ configure_gitconfig() {
 }
 
 # Exibe o menu de opções
-show_menu() {
+exibir_menu() {
     clear
     echo "MENU DE INSTALAÇÃO DE APPS E CONFIGURAÇÃO DO .gitconfig"
     echo "-----------------------------------------------------"
@@ -134,36 +134,36 @@ show_menu() {
 
 # Loop principal
 while true; do
-    show_menu
+    exibir_menu
     read -p "Escolha uma opção: " option
 
     case $option in
         "1")
-            install_obsidian
+            instalar_obsidian
             ;;
         "2")
-            install_discord
+            instalar_discord
             ;;
         "3")
-            install_file_shredder
+            instalar_file_shredder
             ;;
         "4")
-            install_vscode
+            instalar_vscode
             ;;
         "5")
-            install_bitwarden
+            instalar_bitwarden
             ;;
         "6")
-            install_authy
+            instalar_authy
             ;;
         "7")
-            install_postman
+            instalar_postman
             ;;
         "8")
-            install_intellij
+            instalar_intellij
             ;;
         "G" | "g")
-            configure_gitconfig
+            configurar_gitconfig
             ;;
         "Q" | "q")
             echo "Saindo..."
