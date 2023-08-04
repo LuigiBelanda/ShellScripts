@@ -1,4 +1,18 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
+# Função para verificar e instalar Flatpak (caso não esteja instalado)
+check_install_flatpak() {
+    if ! command -v flatpak &>/dev/null; then
+        sudo apt install flatpak -y
+    fi
+}
+
+# Função para verificar e instalar Snap (caso não esteja instalado)
+check_install_snap() {
+    if ! command -v snap &>/dev/null; then
+        sudo apt install snapd -y
+    fi
+}
 
 # Função para remover bloqueios do apt
 remove_apt_locks() {
@@ -17,42 +31,56 @@ remove_apt_locks() {
 
 # Função para instalar o Obsidian via Flatpak
 install_obsidian() {
+    check_install_flatpak
     remove_apt_locks
     flatpak install flathub md.obsidian.Obsidian
 }
 
 # Função para instalar o Discord via Flatpak
 install_discord() {
+    check_install_flatpak
     remove_apt_locks
     flatpak install flathub com.discordapp.Discord
 }
 
-# Função para instalar o Visual Studio Code via Flatpak
+# Função para instalar o Visual Studio Code via Snap
 install_vscode() {
+    check_install_snap
     remove_apt_locks
-    flatpak install flathub com.visualstudio.code
+    sudo snap install code --classic
+}
+
+# Função para instalar o File Shredder via Flatpak
+install_file_shredder() {
+    check_install_flatpak
+    remove_apt_locks
+    flatpak install flathub com.github.ADBeveridge.Raider
 }
 
 # Função para instalar o Bitwarden via Snap
 install_bitwarden() {
+    check_install_snap
     remove_apt_locks
     sudo snap install bitwarden
 }
 
 # Função para instalar o Authy via Snap
 install_authy() {
+    check_install_snap
     remove_apt_locks
     sudo snap install authy
 }
 
 # Função para instalar o Postman via Snap
 install_postman() {
+    check_install_snap
     remove_apt_locks
     sudo snap install postman
 }
 
 # Função para instalar o IntelliJ IDEA Community Edition via Snap
 install_intellij() {
+    check_install_snap
     remove_apt_locks
     sudo snap install intellij-idea-community --classic
 }
@@ -90,13 +118,14 @@ show_menu() {
     echo "FLATPAKS:"
     echo "1 - Obsidian"
     echo "2 - Discord"
-    echo "3 - Visual Studio Code"
+    echo "3 - File Shredder"
     echo "-----------------------------------------------------"
     echo "SNAPS:"
-    echo "4 - Bitwarden"
-    echo "5 - Authy"
-    echo "6 - Postman"
-    echo "7 - IntelliJ IDEA Community Edition"
+    echo "4 - Visual Studio Code"
+    echo "5 - Bitwarden"
+    echo "6 - Authy"
+    echo "7 - Postman"
+    echo "8 - IntelliJ IDEA Community Edition"
     echo "-----------------------------------------------------"
     echo "G - Configurar .gitconfig"
     echo "Q - Sair"
@@ -116,18 +145,21 @@ while true; do
             install_discord
             ;;
         "3")
-            install_vscode
+            install_file_shredder
             ;;
         "4")
-            install_bitwarden
+            install_vscode
             ;;
         "5")
-            install_authy
+            install_bitwarden
             ;;
         "6")
-            install_postman
+            install_authy
             ;;
         "7")
+            install_postman
+            ;;
+        "8")
             install_intellij
             ;;
         "G" | "g")
