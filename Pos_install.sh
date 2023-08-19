@@ -85,6 +85,13 @@ instalar_intellij() {
     sudo snap install intellij-idea-community --classic
 }
 
+# Função para instalar o DBeaver via Flatpak
+instalar_dbeaver() {
+    verificar_instalar_flatpak
+    remover_bloqueios_apt
+    flatpak install flathub io.dbeaver.DBeaverCommunity
+}
+
 # Função para configurar o .gitconfig
 configurar_gitconfig() {
     gitconfig_folder="/home/luigibelanda/Área de Trabalho/Programming/ShellScripts/Dotfiles"
@@ -110,23 +117,58 @@ configurar_gitconfig() {
     fi
 }
 
+# Função para instalar a Docker Engine
+instalar_docker_engine() {
+    remover_bloqueios_apt
+
+    # Desinstalar versões antigas
+    for pkg in docker.io docker-doc docker-compose podman-docker containerd runc; do
+        sudo apt remove $pkg
+    done
+
+    # Instalação usando repositório APT
+    sudo apt update
+    sudo apt install ca-certificates curl gnupg
+
+    # Adicionando chave GPG do Docker
+    sudo install -m 0755 -d /etc/apt/keyrings
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+    sudo chmod a+r /etc/apt/keyrings/docker.gpg
+
+    # Setando o repositório
+    echo \
+        "deb [arch=\"$(dpkg --print-architecture)\" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+        $($(. /etc/os-release && echo "$UBUNTU_CODENAME")) stable" | \
+        sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+    sudo apt update
+
+    # Instalando Docker Engine
+    sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+    # Testando
+    sudo docker run hello-world
+}
+
 # Exibe o menu de opções
 exibir_menu() {
     clear
-    echo "MENU DE INSTALAÇÃO DE APPS E CONFIGURAÇÃO DO .gitconfig"
+    echo "MENU DE INSTALAÇÃO DE APPS E FERRAMENTAS"
     echo "-----------------------------------------------------"
     echo "FLATPAKS:"
     echo "1 - Obsidian"
     echo "2 - Discord"
     echo "3 - File Shredder"
+    echo "4 - DBeaver"
     echo "-----------------------------------------------------"
     echo "SNAPS:"
-    echo "4 - Visual Studio Code"
-    echo "5 - Bitwarden"
-    echo "6 - Authy"
-    echo "7 - Postman"
-    echo "8 - IntelliJ IDEA Community Edition"
+    echo "5 - Visual Studio Code"
+    echo "6 - Bitwarden"
+    echo "7 - Authy"
+    echo "8 - Postman"
+    echo "9 - IntelliJ IDEA Community Edition"
     echo "-----------------------------------------------------"
+    echo "D - Docker Engine"
     echo "G - Configurar .gitconfig"
     echo "Q - Sair"
     echo "-----------------------------------------------------"
@@ -148,19 +190,25 @@ while true; do
             instalar_file_shredder
             ;;
         "4")
-            instalar_vscode
+            instalar_dbeaver
             ;;
         "5")
-            instalar_bitwarden
+            instalar_vscode
             ;;
         "6")
-            instalar_authy
+            instalar_bitwarden
             ;;
         "7")
-            instalar_postman
+            instalar_authy
             ;;
         "8")
+            instalar_postman
+            ;;
+        "9")
             instalar_intellij
+            ;;
+        "D" | "d")
+            instalar_docker
             ;;
         "G" | "g")
             configurar_gitconfig
@@ -176,4 +224,3 @@ while true; do
 
     read -p "Pressione ENTER para continuar..."
 done
-
